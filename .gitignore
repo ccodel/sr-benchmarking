@@ -1,0 +1,13 @@
+# All the checker and proof directories
+drat-trim
+dpr-trim
+dsr-trim
+cake_lpr
+pr-proofs
+sr-proofs
+ppr2drat
+
+# Any generated result
+results/*
+*.txt
+*.csv
