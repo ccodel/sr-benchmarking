@@ -29,8 +29,6 @@ if [ -d ${checker_dir} ]; then
           { time ../${checker_dir}/${checker} ${dir}/${f}.cnf ${dir}/${f}.l${ps} \
             > ../results/${checker}/${checker}-${f}.${ps}.txt ; }  \
             2>> ../results/${checker}/${checker}-${f}.${ps}.txt
-        else
-          echo "No .l${ps} file for ${f}.cnf. Run ./run_d${ps}_trim.sh?"
         fi
       done
     done

@@ -31,7 +31,7 @@ if [ -d ./pr-proofs ] && [ -d ./${checker} ]; then
       if [ -f ./${dir}/${f}.pr ]; then
         echo "Running ${checker} on ${f}.pr"
         { time ../${checker_dir}/${checker} ${dir}/${f}.cnf ${dir}/${f}.pr -L ${dir}/${f}.lpr  \
-          > ../results/${checker_dir}/${checker}-${f}.txt ; }  \
+          > ../results/${checker_dir}/${checker}-${f}pr..txt ; }  \
           2>> ../results/${checker_dir}/${checker}-${f}.pr.txt
 
         cnf_size=$(du -k ${dir}/${f}.cnf | cut -f1)

@@ -3,11 +3,11 @@
 # Runs ./dsr-trim on all LSR files in ./sr-proofs.
 # Times how long proof generation takes
 
-mkdir -p results
-mkdir -p results/dsr-trim
-mkdir -p results/file-sizes
-
 checker=dsr-trim
+
+mkdir -p results
+mkdir -p results/${checker}
+mkdir -p results/file-sizes
 
 if [ -d ./sr-proofs ] && [ -d ./${checker} ]; then
   if [ ! -f ./${checker}/${checker} ]; then
@@ -29,7 +29,7 @@ if [ -d ./sr-proofs ] && [ -d ./${checker} ]; then
       if [ -f ./${dir}/${f}.sr ]; then
         echo "Running ${checker} on ${f}"
         { time ../${checker}/${checker} ${dir}/${f}.cnf ${dir}/${f}.sr ${dir}/${f}.lsr  \
-          > ../results/${checker}/${checker}-${f}.txt ; }  \
+          > ../results/${checker}/${checker}-${f}.sr.txt ; }  \
           2>> ../results/${checker}/${checker}-${f}.sr.txt
 
         cnf_size=$(du -k ${dir}/${f}.cnf | cut -f1)

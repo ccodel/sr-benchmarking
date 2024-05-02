@@ -7,6 +7,8 @@ pr-proofs
 sr-proofs
 ppr2drat
 
+lean-lsr-check
+
 # Any generated result
 results/*
 *.txt

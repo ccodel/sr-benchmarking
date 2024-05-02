@@ -6,11 +6,15 @@
 #   results/cake_lpr
 #   results/dsr-trim
 #   results/ppr2drat
+# Stores collated results in results/collated
 
-for checker in drat-trim dpr-trim cake_lpr dsr-trim ppr2drat lrat-check lpr-check lsr-check ; do
+mkdir -p results
+mkdir -p results/collated
+
+for checker in drat-trim dpr-trim cake_lpr dsr-trim ppr2drat lrat-check lpr-check lsr-check lean-lsr-check ; do
   if [ -d ./results/${checker} ]; then
-
-    csv=results/${checker}_collated.csv
+    
+    csv=results/collated/${checker}-collated.csv
     echo "checker-file,time" > ${csv}
 
     echo "Collating results for ${checker} in ${csv}"
