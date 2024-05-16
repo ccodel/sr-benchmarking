@@ -21,3 +21,6 @@ results
 results/*
 *.txt
 *.csv
+*.lpr
+*.lsr
+*.lrat
