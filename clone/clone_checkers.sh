@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Clones the proof checkers.
+# This script expects to be in the clone/ directory.
 # If any of the following directories already exist at project root level:
 #    ./drat-trim/
 #    ./dpr-trim/
@@ -9,7 +10,14 @@
 #    ./ppr2drat/
 # then instead it will `git pull`.
 
-for checker in drat-trim dpr-trim ppr2drat ; do
+# Save the starting directory, restore when done
+starting_dir=$(pwd)
+script_dir=$(dirname $0)
+
+# Change to this script's directory, then up a level, to project root
+cd $script_dir/..
+
+for checker in drat-trim dpr-trim sr2drat ; do
   if [ ! -d ./${checker} ]; then
     git clone https://github.com/marijnheule/${checker}
   else
@@ -37,3 +45,7 @@ else
   git pull
   cd ..
 fi
+
+echo "All proof checkers cloned."
+
+cd $starting_dir

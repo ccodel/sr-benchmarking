@@ -1,15 +1,23 @@
 # All the checker and proof directories
 drat-trim
+drat-trim/*
 dpr-trim
+dpr-trim/*
 dsr-trim
+dsr-trim/*
 cake_lpr
+cake_lpr/*
 pr-proofs
+pr-proofs/*
 sr-proofs
-ppr2drat
+sr-proofs/*
+sr2drat
+sr2drat/*
 
 lean-lsr-check
 
 # Any generated result
+results
 results/*
 *.txt
 *.csv
