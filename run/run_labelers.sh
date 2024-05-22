@@ -2,6 +2,7 @@
 
 script_dir=$(dirname $0)
 
-for labeler in dpr-trim dsr-trim ; do
+# NOTE: The scripts have underscores, but the checkers use hyphens
+for labeler in dpr_trim dsr_trim ; do
   $script_dir/run_${labeler}.sh
 done
