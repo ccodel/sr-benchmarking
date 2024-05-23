@@ -28,7 +28,7 @@ for checker in cake_lpr drat-trim dpr-trim dsr-trim sr2drat lrat-check lpr-check
 
     echo "Collating results for ${checker} in ${csv}"
     for file in results/${checker}/*.txt ; do
-      python3 collate_results.py $file >> $csv
+      python3 collate/collate_results.py $file >> $csv
     done
   else
     echo "No results found for ${checker}, skipping..."
