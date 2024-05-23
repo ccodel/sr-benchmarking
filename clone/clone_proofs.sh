@@ -24,6 +24,8 @@ for proofs in sr-proofs pr-proofs ; do
   fi
 done
 
+echo "------------------------------"
 echo "All proof repositories cloned."
+echo "------------------------------"
 
 cd $starting_dir

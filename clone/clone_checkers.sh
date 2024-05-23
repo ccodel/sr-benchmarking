@@ -46,6 +46,8 @@ else
   cd ..
 fi
 
+echo "--------------------------"
 echo "All proof checkers cloned."
+echo "--------------------------"
 
 cd $starting_dir
