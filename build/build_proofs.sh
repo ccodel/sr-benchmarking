@@ -17,10 +17,17 @@ if [ ! -d ./pr-proofs ]; then
   exit
 fi
 
-if [ -d ./sr-proofs ]; then
-  cd sr-proofs/php
+if [ ! -d ./sr-proofs ]; then
+  echo "Error: ./sr-proofs does not exist."
+  cd $starting_dir
+  exit 1
+fi
+
+cd sr-proofs/php
+if [ ! -f php-50.sr ]; then
   echo "Building php and php-sr proof generation executables..."
-  make clean && make
+  make clean > /dev/null
+  make > /dev/null
   if [ -f ./php ] && [ -f ./php-sr ]; then
     for i in $(seq 10 5 50); do
       echo "Generating php-${i}"
@@ -33,9 +40,7 @@ if [ -d ./sr-proofs ]; then
     exit 1
   fi
 else
-  echo "Error: ./sr-proofs does not exist."
-  cd $starting_dir
-  exit 1
+  echo "php and php-sr proofs already generated, skipping..."
 fi
 
 cd $starting_dir

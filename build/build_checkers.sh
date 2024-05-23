@@ -24,7 +24,7 @@ for checker in drat-trim dpr-trim cake_lpr dsr-trim sr2drat ; do
     if [ -f $checker ]; then
       echo "${checker} already exists, skipping"
     else
-      make
+      make > /dev/null
 
       # If any checker (particularly cake_lpr) encounters build error...
       if [ $? -ne 0 ]; then
