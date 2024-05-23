@@ -13,13 +13,7 @@ ps=${1}
 
 cd $script_dir/..
 
-if [ -f ${checker_dir}/${checker} ]; then
-  # The Lean checker is a large executable,
-  # so to cache it in memory,
-  # run it once to get the usage string.
-  ${checker_dir}/${checker} > /dev/null
-  run/run_checker_base.sh ${checker} ${checker_dir} sr-proofs $ps
-else
+if [ ! -f ${checker_dir}/${checker} ]; then
   echo "Error: ${checker_dir}/${checker} does not exist."
   echo "Because the Lean executable is too large, and Lean installation is complicated, you must add it manually."
   echo "Please move a copy to './${checker}'."
@@ -27,4 +21,8 @@ else
   exit 1
 fi
 
+# The Lean checker is a large executable, so to cache it in memory,
+# run it once to get the usage string.
+${checker_dir}/${checker} > /dev/null
+run/run_checker_base.sh ${checker} ${checker_dir} sr-proofs $ps
 cd $starting_dir
