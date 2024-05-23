@@ -15,6 +15,6 @@ if [ -f ${script_dir}/${lean_dir}/${lean_checker} ]; then
   ${script_dir}/run/run_lean_lsr_check.sh
 else
   echo "Lean checker doesn't exist, skipping..."
-end
+fi
 
 cd $starting_dir
