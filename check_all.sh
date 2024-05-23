@@ -7,6 +7,9 @@
 starting_dir=$(pwd)
 script_dir=$(dirname $0)
 
+lean_dir=.
+lean_checker=lean-lsr-check
+
 echo "Running lpr-check on LPR proofs"
 ${script_dir}/run/run_lpr_check.sh
 
