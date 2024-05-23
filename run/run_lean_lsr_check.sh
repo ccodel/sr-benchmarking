@@ -9,7 +9,6 @@ script_dir=$(dirname $0)
 
 checker=lean-lsr-check
 checker_dir=.
-ps=${1}
 
 cd $script_dir/..
 
@@ -24,5 +23,6 @@ fi
 # The Lean checker is a large executable, so to cache it in memory,
 # run it once to get the usage string.
 ${checker_dir}/${checker} > /dev/null
-run/run_checker_base.sh ${checker} ${checker_dir} sr-proofs $ps
+run/run_checker_base.sh ${checker} ${checker_dir} pr-proofs pr
+run/run_checker_base.sh ${checker} ${checker_dir} sr-proofs sr
 cd $starting_dir
