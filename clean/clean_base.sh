@@ -19,7 +19,7 @@ fi
 
 cd $proof_dir
 for dir in $(ls -d */); do
-  rm ./${dir}/*.${ps}
+  rm -f ./${dir}/*.${ps}
 done
 
 cd $starting_dir
